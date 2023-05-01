@@ -1,6 +1,6 @@
 #game-header {
     height: 150px;
-    width: 400px;
+    width: 425px;
     background-color: rgb(9, 9, 157);
     display: flex;
     flex-direction: row;
@@ -8,11 +8,26 @@
     align-items: center;
     color: rgb(244, 189, 11);
     font-family: gyparody;
-    font-size: 85px;
+    font-size: 95px;
     border-radius: 20px;
 }
 
-body {
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+#p1-score, #p2-score {
+    background-color: rgb(9, 9, 157);
+    height: 125px;
+    width: 250px;
+    border-radius: 20px;
+    border: 2px solid rgb(244, 189, 11);
+    color: rgb(244, 189, 11);
+    font-family: gyparody;
+    font-size: 30px;
     display: flex;
     justify-content: center;
+    padding-top: 20px;;
 }
