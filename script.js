@@ -29,8 +29,6 @@
     }
     createGameBoard()
 
-    //create a function that creates the game board
-    //create for loop to generate 30 box game board
-    //let box = document.createElement()
-    //box.createClassList()
-    // appendChild to div game-board
+
+
+   

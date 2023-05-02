@@ -2,6 +2,7 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
+    height: 25vh;
 }
 
 #game-header {
@@ -22,12 +23,13 @@ header {
 
 #p1, #p2 {
     background-color: rgb(9, 9, 157);
-    height: 125px;
+    height: 130px;
     width: 250px;
     border-radius: 20px;
     border: 2px solid rgb(244, 189, 11);
     color: rgb(244, 189, 11);
     font-family: gyparody;
+    letter-spacing: 2px;
     font-size: 30px;
     display: flex;
     justify-content: center;
@@ -41,14 +43,14 @@ header {
 }
 #game-board {
     height: 550px;
-    width: 1175px;
+    width: 88vw;
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
-    gap: 2px;
-    row-gap: 2;
-    margin-top: 20px;
-    margin-Left: 67px;
+    gap: 3px;
+    row-gap: 3;
+    background-color: black;
+    border-radius: 10px;;
 }
 
 .board-box {
@@ -56,5 +58,12 @@ header {
     height: 100%;
     overflow: auto;
     border-radius: 10px;;
+}
+
+.board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
 }
 
