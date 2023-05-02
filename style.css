@@ -1,3 +1,9 @@
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
 #game-header {
     height: 150px;
     width: 425px;
@@ -10,15 +16,11 @@
     font-family: gyparody;
     font-size: 95px;
     border-radius: 20px;
+    border: 2px solid rgb(244, 189, 11);
 }
 
-header {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-}
 
-#p1-score, #p2-score {
+#p1, #p2 {
     background-color: rgb(9, 9, 157);
     height: 125px;
     width: 250px;
@@ -29,5 +31,30 @@ header {
     font-size: 30px;
     display: flex;
     justify-content: center;
-    padding-top: 20px;;
+    padding-top: 20px;
 }
+
+#p1-score, #p2-score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#game-board {
+    height: 550px;
+    width: 1175px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+    gap: 2px;
+    row-gap: 2;
+    margin-top: 20px;
+    margin-Left: 67px;
+}
+
+.board-box {
+    background-color: rgb(9, 9, 157);
+    height: 100%;
+    overflow: auto;
+    border-radius: 10px;;
+}
+
