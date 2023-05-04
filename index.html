@@ -7,21 +7,31 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"> 
 </head>
 <body>
     <header>
         <span id="p1">
             PLAYER 1
-            <span id="p1-score">0</span>
+            <div id="p1-score">0</div>
         </span>
         <div id="game-header">JEOPARDY!</div>
         <span id="p2">
             PLAYER 2
-            <span id="p2-score">0</span>
+            <div id="p2-score">0</div>
         </span>
     </header>
     <div class="board-container">
         <div id="game-board"></div>
+    </div>
+    <div id="questionModal">
+        <div id="triviaQuestion">
+            <span class="close">&times;</span>
+            <p>Question text</p>
+            <input type="text"id="answer">
+        </div>
     </div>
 </body>
 </html>
