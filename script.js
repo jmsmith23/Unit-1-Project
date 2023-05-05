@@ -7,16 +7,17 @@ const players =  {
 
 /*----- state variables -----*/
 let turn;
-let board;
 let winner;
+
+
 
 /*----- cached elements  -----*/
 
 const gameBoard = document.getElementById('game-board')
 const p1Score = document.getElementById('p1-score')
 const p2Score = document.getElementById('p2-score')
-// const clueBox = document.getElementsByClassName('board-box')
 const modal = document.getElementById('questionModal')
+
 /*----- event listeners -----*/
 
 
@@ -38,13 +39,18 @@ function createGameBoard() {
 
 createGameBoard()
 
+// Selects the game board boxes and add a click Event Listener to them
 const clueBoxes = document.querySelectorAll('.board-box')
 
 clueBoxes.forEach((box) => {
-    box.addEventListener('click', () => {
-        alert('Hello')
+    box.addEventListener('click', async (e) => {
+        const response = await fetch('https://jservice.io/api/random')
+        const data = await response.json()
+        console.log(data)
+        clueBoxes.innerHTML = `${data[0].question}`;
     })
 })
+
 
 
 
