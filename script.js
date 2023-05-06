@@ -42,12 +42,18 @@ createGameBoard()
 // Selects the game board boxes and add a click Event Listener to them
 const clueBoxes = document.querySelectorAll('.board-box')
 
+async function getCategories(){
+    const response = await fetch('https://jservice.io/api/categories?count=100')
+    const data = await response.json()
+    console.log(data)
+}
+
+getCategories()
+
+
 clueBoxes.forEach((box) => {
     box.addEventListener('click', async (e) => {
-        const response = await fetch('https://jservice.io/api/random')
-        const data = await response.json()
-        console.log(data)
-        clueBoxes.innerHTML = `${data[0].question}`;
+        alert('hello')
     })
 })
 
