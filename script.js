@@ -24,10 +24,18 @@ const modal = document.getElementById('questionModal')
 
 /*----- functions -----*/
 
+// init();
+
+// function init() {
+//     turn = one
+//     winner= null
+//     render()
+// }
+
 // Creates game board dynamically
 function createGameBoard() {
     for (let i = 1; i <= 30; i++) {
-        let box = document.createElement('div')
+        let box = document.createElement('div') 
         if (i <= 5) {
             box.className = 'category'
         } else {
@@ -36,19 +44,23 @@ function createGameBoard() {
         gameBoard.appendChild(box)
     }
 }
-
 createGameBoard()
 
 // Selects the game board boxes and add a click Event Listener to them
 const clueBoxes = document.querySelectorAll('.board-box')
-
+const categories = []
+const boardCategories = []
 async function getCategories(){
     const response = await fetch('https://jservice.io/api/categories?count=100')
     const data = await response.json()
-    console.log(data)
+    categories.push(...data.filter(clues => clues.clues_count > 10))
+for (let i = 0; i < 5; i++) {
+    const currentPick = categories[Math.floor(Math.random() * categories.length)]
+    boardCategories.push(currentPick)
+    }
 }
-
-getCategories()
+getCategories() 
+// console.log(boardCategories)
 
 
 clueBoxes.forEach((box) => {
@@ -57,6 +69,7 @@ clueBoxes.forEach((box) => {
     })
 })
 
+//take the categories and randomly cycle through to give me 5 categories to display on game board
+ // display in the top row of game board
 
-
-
+ 
