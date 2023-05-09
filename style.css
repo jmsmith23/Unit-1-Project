@@ -3,37 +3,39 @@ header {
     justify-content: space-around;
     align-items: flex-start;
     height: 25vh;
+    text-shadow: 2px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
 #game-header {
     height: 150px;
     width: 425px;
-    background-color: rgb(9, 9, 157);
+    background-color: rgb(3, 9, 115);
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: rgb(244, 189, 11);
+    color: rgb(207, 163, 89);
     font-family: gyparody;
     font-size: 95px;
     border-radius: 20px;
-    border: 2px solid rgb(244, 189, 11);
+    border: 2px solid  rgb(207, 163, 89);
 }
 
 
 #p1, #p2 {
-    background-color: rgb(9, 9, 157);
+    background-color: rgb(3, 9, 115);
     height: 130px;
     width: 250px;
     border-radius: 20px;
-    border: 2px solid rgb(244, 189, 11);
-    color: rgb(244, 189, 11);
+    border: 2px solid  rgb(207, 163, 89);
+    color:  rgb(207, 163, 89);
     font-family: gyparody;
     letter-spacing: 2px;
     font-size: 30px;
     display: flex;
     justify-content: center;
     padding-top: 20px;
+    text-shadow: 2px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
 #p1-score, #p2-score {
@@ -47,19 +49,37 @@ header {
     height: 550px;
     width: 88vw;
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-columns: repeat(5, 1fr); 
+    grid-template-rows: repeat(5, 1fr);
     gap: 4px;
     row-gap: 4;
     background-color: black;
     border-radius: 10px;;
+    grid-auto-flow: column;
 }
 
 .board-box, .category {
-    background-color: rgb(9, 9, 157);
+    background-color: rgb(3, 9, 115);
     height: 100%;
     overflow: auto;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.category {
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 25px;
+    
+}
+
+.board-box {
+    color:  rgb(207, 163, 89);
+    font-family: Anton;
+    font-size: 50px;
 }
 
 .board-box:hover {
@@ -70,7 +90,42 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
     height: 70vh;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5)
+}
+
+.modal-content {
+    background-color: rgb(3, 9, 115);
+    border: 2px solid  rgb(207, 163, 89);
+    margin: 13% auto;
+    padding: 18px;
+    width: 85%;
+    height: 67%;
+    border-radius: 10px;
+}
+
+.closeBtn {
+    color: #ccc;
+    float: right;
+    font-size: 30px;
+}
+
+.closeBtn:hover, .closeBtn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 

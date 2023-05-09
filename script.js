@@ -14,8 +14,13 @@ const gameBoard = document.getElementById("game-board");
 const p1Score = document.getElementById("p1-score");
 const p2Score = document.getElementById("p2-score");
 const modal = document.getElementById("questionModal");
+const closeBtn = document.getElementsByClassName("closeBtn")[0];
 
 /*----- event listeners -----*/
+//Button to close modal
+closeBtn.addEventListener("click", closeModal);
+//Close modal by clicking outside of it
+window.addEventListener("click", outsideClick);
 
 /*----- functions -----*/
 
@@ -27,26 +32,12 @@ const modal = document.getElementById("questionModal");
 //     render()
 // }
 
-// Creates game board dynamically
-// function createGameBoard() {
-//   for (let i = 0; i < 30; i++) {
-//     let box = document.createElement("div");
-//     // if (i <= 5) {
-//     if (i % 5 == 0) {
-//       box.className = "category";
-//     } else {
-//       box.className = "board-box";
-//     }
-//     gameBoard.appendChild(box);
-//   }
-// }
-// createGameBoard();
-
-const clueBoxes = document.querySelectorAll(".board-box");
+// const clueBoxes = document.querySelectorAll(".board-box");
 const categories = [];
 const boardCategories = [];
 const boardClues = [];
 
+// function that gets categories from api, filters them based on clue quantity, and randomly selects 5 from array for game board
 async function getCategories() {
   const response = await fetch("https://jservice.io/api/categories?count=100");
   const data = await response.json();
@@ -56,15 +47,11 @@ async function getCategories() {
       categories[Math.floor(Math.random() * categories.length)];
     boardCategories.push(currentPick);
   }
-  //   const usableCategories = boardCategories.map(
-  //     (boardCategories) => boardCategories.title
-  //   );
-  //   console.log(usableCategories);
-  //   console.log(boardCategories);
 }
 
 // console.log(boardCategories);
 
+//function that get clues from API that match the retrieved category by ID
 async function getClues(categoryId) {
   const response = await fetch(
     `https://jservice.io/api/clues?category=${categoryId}`
@@ -75,30 +62,51 @@ async function getClues(categoryId) {
 
 async function start() {
   await getCategories();
-  //   console.log("boardCategories: ", boardCategories);
+  console.log("boardCategories: ", boardCategories);
   for (let i = 0; i < 5; i++) {
     let box = document.createElement("div");
     box.className = "category";
+    box.innerHTML = boardCategories[i].title.toUpperCase();
     gameBoard.appendChild(box);
 
     const clues = await getClues(boardCategories[i].id);
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 4; i++) {
       const currentPick = clues[Math.floor(Math.random() * clues.length)];
       boardClues.push(currentPick);
       let box = document.createElement("div");
-      box.className = "board-box";
+      box.classList.add("board-box");
+      box.setAttribute("data", `$${i + 1}00`);
+      const value = box.getAttribute("data");
+      box.innerText = value;
+      box.setAttribute("clueId", currentPick.id);
       gameBoard.appendChild(box);
     }
   }
   console.log("clues: ", boardClues);
 }
-start();
+start().then(() => {
+  const clueBoxes = document.querySelectorAll(".board-box");
 
-clueBoxes.forEach((box) => {
-  box.addEventListener("click", async (e) => {
-    alert("hello");
+  clueBoxes.forEach((box) => {
+    box.addEventListener("click", openModal);
   });
 });
 
-//take the categories and randomly cycle through to give me 5 categories to display on game board
-// display in the top row of game board
+//function to open modal
+function openModal(e) {
+  modal.style.display = "block";
+  const clueId = e.target.getAttribute("clueId");
+  console.log(clueId);
+}
+
+//closes modal with button
+function closeModal() {
+  modal.style.display = "none";
+}
+
+//closes modal by clicking outside of it
+function outsideClick(e) {
+  if (e.target == modal) {
+    modal.style.display = "none";
+  }
+}
