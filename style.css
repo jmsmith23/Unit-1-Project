@@ -32,8 +32,8 @@ header {
     font-family: gyparody;
     letter-spacing: 2px;
     font-size: 30px;
-    display: flex;
-    justify-content: center;
+    display: block;
+    text-align: center;
     padding-top: 20px;
     text-shadow: 2px 4px 0px rgba(0, 0, 0, 0.5);
 }
@@ -43,6 +43,7 @@ header {
     justify-content: center;
     align-items: center;
     font-family: Anton;
+    margin-top: 20px;
 }
 
 #game-board {
@@ -114,6 +115,8 @@ header {
     width: 85%;
     height: 67%;
     border-radius: 10px;
+    animation-name: clueOpen;
+    animation-duration: 0.3s;
 }
 
 .closeBtn {
@@ -123,9 +126,58 @@ header {
 }
 
 .closeBtn:hover, .closeBtn:focus {
-    color: black;
+    color: rgb(207, 163, 89);
     text-decoration: none;
     cursor: pointer;
+}
+
+@keyframes clueOpen {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+#questionContent {
+    display: block;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    margin: 80px 200px auto 200px;
+    font-size: 45px;
+    text-shadow: 2px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+form > input {
+    width: 400px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    margin-right: 15px;
+    padding-left: 10px;
+    font-size: 23px;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+form > button {
+    height: 38px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Oswald', sans-serif;
+    background-color: rgb(207, 163, 89);
+    font-size: 20px;
+}
+
+form > button:hover {
+    cursor: pointer;
+    background-color: rgb(152, 115, 51);
 }
 
 

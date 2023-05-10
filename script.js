@@ -78,7 +78,7 @@ async function start() {
       box.setAttribute("data", `$${i + 1}00`);
       const value = box.getAttribute("data");
       box.innerText = value;
-      box.setAttribute("clueId", currentPick.id);
+      box.setAttribute("clueQuestion", currentPick.question);
       gameBoard.appendChild(box);
     }
   }
@@ -95,8 +95,9 @@ start().then(() => {
 //function to open modal
 function openModal(e) {
   modal.style.display = "block";
-  const clueId = e.target.getAttribute("clueId");
-  console.log(clueId);
+  const clueQuestion = e.target.getAttribute("clueQuestion");
+  const trivia = document.getElementById("questionContent");
+  trivia.innerHTML = clueQuestion;
 }
 
 //closes modal with button
