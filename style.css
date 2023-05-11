@@ -107,6 +107,10 @@ header {
     background-color: rgba(0, 0, 0, 0.5)
 }
 
+.modal.open {
+    display: block;
+}
+
 .modal-content {
     background-color: rgb(3, 9, 115);
     border: 2px solid  rgb(207, 163, 89);

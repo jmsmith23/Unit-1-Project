@@ -7,30 +7,44 @@ const players = {
 /*----- state variables -----*/
 let turn;
 let winner;
+let answer;
+let p1Score;
+let p2Score;
+let reward;
 
 /*----- cached elements  -----*/
 
 const gameBoard = document.getElementById("game-board");
-const p1Score = document.getElementById("p1-score");
-const p2Score = document.getElementById("p2-score");
+const p1ScoreEl = document.getElementById("p1-score");
+const p2ScoreEl = document.getElementById("p2-score");
 const modal = document.getElementById("questionModal");
 const closeBtn = document.getElementsByClassName("closeBtn")[0];
+const startButton = document.querySelector(".startButton");
+const startGameModal = document.querySelector(".startGameModal");
+const answerButton = document.querySelector(".answerButton");
+const userAnswer = document.querySelector(".userAnswer");
 
 /*----- event listeners -----*/
 //Button to close modal
-closeBtn.addEventListener("click", closeModal);
+closeBtn.addEventListener("click", closeQuestionModal);
 //Close modal by clicking outside of it
 window.addEventListener("click", outsideClick);
+startButton.addEventListener("click", () => {
+  closeStartGameModal();
+});
 
+answerButton.addEventListener("click", () => {});
 /*----- functions -----*/
 
-// init();
+init();
 
-// function init() {
-//     turn = one
-//     winner= null
-//     render()
-// }
+function init() {
+  turn = players.one;
+  winner = null;
+  p1Score = 0;
+  p2Score = 0;
+  // render()
+}
 
 // const clueBoxes = document.querySelectorAll(".board-box");
 const categories = [];
@@ -60,6 +74,7 @@ async function getClues(categoryId) {
   return data;
 }
 
+//Takes returned categories and clues from API, formats quantity for game board and creates board elements with them
 async function start() {
   await getCategories();
   console.log("boardCategories: ", boardCategories);
@@ -79,35 +94,51 @@ async function start() {
       const value = box.getAttribute("data");
       box.innerText = value;
       box.setAttribute("clueQuestion", currentPick.question);
+
+      box.addEventListener("click", () => {
+        modal.classList.add("open");
+        const clueQuestion = currentPick.question;
+        const trivia = document.getElementById("questionContent");
+        answer = currentPick.answer;
+        trivia.innerHTML = clueQuestion;
+        reward = (i + 1) * 100;
+      });
+
       gameBoard.appendChild(box);
     }
   }
   console.log("clues: ", boardClues);
 }
-start().then(() => {
-  const clueBoxes = document.querySelectorAll(".board-box");
 
-  clueBoxes.forEach((box) => {
-    box.addEventListener("click", openModal);
-  });
-});
-
-//function to open modal
-function openModal(e) {
-  modal.style.display = "block";
-  const clueQuestion = e.target.getAttribute("clueQuestion");
-  const trivia = document.getElementById("questionContent");
-  trivia.innerHTML = clueQuestion;
-}
+start();
 
 //closes modal with button
-function closeModal() {
-  modal.style.display = "none";
+function closeQuestionModal() {
+  // modal.style.display = "none";
+  modal.classList.remove("open");
 }
 
 //closes modal by clicking outside of it
 function outsideClick(e) {
   if (e.target == modal) {
-    modal.style.display = "none";
+    // modal.style.display = "none";
+    closeQuestionModal();
+  }
+}
+
+function openStartGameModal() {
+  startGameModal.classList.add("open");
+}
+
+function closeStartGameModal() {
+  startGameModal.classList.remove("open");
+}
+
+function compareAnswer() {
+  const value = userAnswer.value;
+  if (value === answer) {
+    if (turn === players.one) {
+      p1Score += reward;
+    }
   }
 }
