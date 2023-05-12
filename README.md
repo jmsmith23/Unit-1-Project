@@ -4,6 +4,8 @@ JEOPARDY! is a two player turn based trivia game. Each player selects a clue fro
 
 ## Gameplay Photos
 
+![Imgur](https://i.imgur.com/xPrMM2w.png)
+
 ## Technologies Used
 
 This version of JEOPARDY! was completed using only HTML, CSS, and JavaScript. The categories and clues are all taken from the API jService.io and are randomly chosen each time the game is played.
