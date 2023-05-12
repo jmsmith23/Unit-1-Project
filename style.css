@@ -112,6 +112,10 @@ header {
 }
 
 .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(3, 9, 115);
     border: 2px solid  rgb(207, 163, 89);
     margin: 13% auto;
@@ -127,6 +131,7 @@ header {
     color: #ccc;
     float: right;
     font-size: 30px;
+    margin-right: -2px;
 }
 
 .closeBtn:hover, .closeBtn:focus {
@@ -138,6 +143,50 @@ header {
 @keyframes clueOpen {
     from {opacity: 0}
     to {opacity: 1}
+}
+
+.startGameModal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .95) 
+}
+
+.openModalContent {
+    background-color: #f4f4f4;
+    margin: 17% auto;
+    padding: 20px;
+    width: 30%;
+    height: 25%;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 20px;
+    text-shadow: 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.jeopardyLogo {
+    font-family: gyparody;
+    color: rgb(0, 89, 255);
+    font-size: 50px;
+    text-shadow: 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.startButton {
+    height: 40px;
+    width: 90px;
+    background-color: rgb(248, 238, 59);
+    border-radius: 50px;
+    font-family: 'Oswald', sans-serif; 
+    font-size: 17px;
+}
+
+.startButton:hover {
+    cursor: pointer;
+    background-color: rgb(208, 200, 48);
 }
 
 form{
@@ -157,7 +206,7 @@ form{
     text-shadow: 2px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
-form > input {
+div > input {
     width: 400px;
     height: 35px;
     border: none;
@@ -169,7 +218,7 @@ form > input {
     text-align: center;
 }
 
-form > button {
+div > button {
     height: 38px;
     width: 100px;
     border: none;
@@ -177,12 +226,14 @@ form > button {
     font-family: 'Oswald', sans-serif;
     background-color: rgb(207, 163, 89);
     font-size: 20px;
+    margin-bottom: 100px;
 }
 
-form > button:hover {
+div > button:hover {
     cursor: pointer;
     background-color: rgb(152, 115, 51);
 }
+
 
 
 

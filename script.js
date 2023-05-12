@@ -23,17 +23,22 @@ const startButton = document.querySelector(".startButton");
 const startGameModal = document.querySelector(".startGameModal");
 const answerButton = document.querySelector(".answerButton");
 const userAnswer = document.querySelector(".userAnswer");
+const p1ScoreBox = document.querySelector("p1");
+const p2ScoreBox = document.querySelector("p2");
 
 /*----- event listeners -----*/
 //Button to close modal
 closeBtn.addEventListener("click", closeQuestionModal);
 //Close modal by clicking outside of it
 window.addEventListener("click", outsideClick);
+//Starts game by closing intro modal
 startButton.addEventListener("click", () => {
   closeStartGameModal();
 });
-
-answerButton.addEventListener("click", () => {});
+//Submits player answer
+answerButton.addEventListener("click", () => {
+  compareAnswer();
+});
 /*----- functions -----*/
 
 init();
@@ -99,7 +104,7 @@ async function start() {
         modal.classList.add("open");
         const clueQuestion = currentPick.question;
         const trivia = document.getElementById("questionContent");
-        answer = currentPick.answer;
+        answer = currentPick.answer.toLowerCase();
         trivia.innerHTML = clueQuestion;
         reward = (i + 1) * 100;
       });
@@ -114,14 +119,12 @@ start();
 
 //closes modal with button
 function closeQuestionModal() {
-  // modal.style.display = "none";
   modal.classList.remove("open");
 }
 
 //closes modal by clicking outside of it
 function outsideClick(e) {
   if (e.target == modal) {
-    // modal.style.display = "none";
     closeQuestionModal();
   }
 }
@@ -135,10 +138,25 @@ function closeStartGameModal() {
 }
 
 function compareAnswer() {
-  const value = userAnswer.value;
+  const value = userAnswer.value.toLowerCase();
   if (value === answer) {
     if (turn === players.one) {
       p1Score += reward;
+      p1ScoreEl.textContent = p1Score;
+    } else {
+      p2Score += reward;
+      p2ScoreEl.textContent = p2Score;
+    }
+  } else {
+    if (turn === players.one) {
+      p1Score -= reward;
+      p1ScoreEl.textContent = p1Score;
+      turn = players.two;
+    } else {
+      p2Score -= reward;
+      p2ScoreEl.textContent = p2Score;
+      turn = players.one;
     }
   }
+  userAnswer.value = "";
 }
