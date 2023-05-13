@@ -31,18 +31,24 @@
     </div>
     <div id="questionModal" class="modal">
         <div class="modal-content">
-            <span class="closeBtn">&times;</span>
             <h2 id="questionContent"></h2>
             <div id="answerEl">
                 <input type="text" name="user-answer" class="userAnswer" placeholder="What is...">
                 <button type="submit" class="answerButton">Answer</button>
             </div>
+            <div id="responseMessage"></div>
         </div>
     </div>
     <div class="startGameModal modal open">
         <div class="openModalContent">
             <h2 class="message">Welcome, Let's Play<br> <span class="jeopardyLogo">JEOPARDY!</span></h2>
             <button class="startButton">Play</button>
+        </div>
+    </div>
+    <div class="endGameModal">
+        <div class="endModalContent">
+            <h2 class="winnerMessage"></h2>
+            <button class="playAgainBtn">Play Again</button>
         </div>
     </div>
 </body>
