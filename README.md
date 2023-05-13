@@ -4,6 +4,7 @@ JEOPARDY! is a two player turn based trivia game. Each player selects a clue fro
 
 ## Gameplay Photos
 
+![Imgur](https://i.imgur.com/gmU7nCW.png)
 ![Imgur](https://i.imgur.com/xPrMM2w.png)
 ![Imgur](https://i.imgur.com/wUJMOpp.png)
 ![Imgur](https://i.imgur.com/s4lZ0iZ.png)
