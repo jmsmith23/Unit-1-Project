@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeopardy!</title>
+    <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"> 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header>
-        <span id="p1">
-            PLAYER 1
-            <div id="p1-score">0</div>
-        </span>
-        <div id="game-header">JEOPARDY!</div>
-        <span id="p2">
-            PLAYER 2
-            <div id="p2-score">0</div>
-        </span>
+      <span id="p1">
+        PLAYER 1
+        <div id="p1-score">0</div>
+      </span>
+      <div id="game-header">JEOPARDY!</div>
+      <span id="p2">
+        PLAYER 2
+        <div id="p2-score">0</div>
+      </span>
     </header>
     <div class="board-container">
-        <div id="game-board"></div>
+      <div id="game-board"></div>
     </div>
     <div id="questionModal" class="modal">
-        <div class="modal-content">
-            <h2 id="questionContent"></h2>
-            <div id="answerEl">
-                <input type="text" name="user-answer" class="userAnswer" placeholder="What is...">
-                <button type="submit" class="answerButton">Answer</button>
-            </div>
-            <div id="responseMessage"></div>
+      <div class="modal-content">
+        <h2 id="questionContent"></h2>
+        <div id="answerEl">
+          <input
+            type="text"
+            name="user-answer"
+            class="userAnswer"
+            placeholder="What is..."
+          />
+          <button type="submit" class="answerButton">Answer</button>
         </div>
+        <div id="responseMessage"></div>
+      </div>
     </div>
     <div class="startGameModal modal open">
-        <div class="openModalContent">
-            <h2 class="message">Welcome, Let's Play<br> <span class="jeopardyLogo">JEOPARDY!</span></h2>
-            <button class="startButton">Play</button>
-        </div>
+      <div class="openModalContent">
+        <h2 class="message">
+          Welcome, Let's Play<br />
+          <span class="jeopardyLogo">JEOPARDY!</span>
+        </h2>
+        <button class="startButton">Play</button>
+      </div>
     </div>
     <div class="endGameModal">
-        <div class="endModalContent">
-            <h2 class="winnerMessage"></h2>
-            <button class="playAgainBtn">Play Again</button>
-        </div>
+      <div class="endModalContent">
+        <h2 class="winnerMessage"></h2>
+        <button class="playAgainBtn">Play Again</button>
+      </div>
     </div>
-</body>
+  </body>
 </html>
